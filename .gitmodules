@@ -1,7 +1,7 @@
 [submodule "m3"]
 	path = m3
 	url = https://github.com/shreyassrivatsan/m3
-	branch = kubecon_final
+	branch = kubecon_talk
 [submodule "prometheus"]
 	path = prometheus
 	url = https://github.com/shreyassrivatsan/prometheus
