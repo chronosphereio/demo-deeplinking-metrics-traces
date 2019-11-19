@@ -1,0 +1,16 @@
+[submodule "m3"]
+	path = m3
+	url = https://github.com/shreyassrivatsan/m3
+	branch = kubecon_final
+[submodule "prometheus"]
+	path = prometheus
+	url = https://github.com/shreyassrivatsan/prometheus
+	branch = kubecon_final
+[submodule "jaeger-example"]
+	path = jaeger-example
+	url = https://github.com/chronosphereio/jaeger-example
+	branch = r/kubecon_talk_demo
+[submodule "grafana"]
+	path = grafana
+	url = https://github.com/chronosphereiox/grafana
+	branch = gg/traceid-support-kubecon

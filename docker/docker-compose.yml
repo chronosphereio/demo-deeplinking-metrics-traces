@@ -1,0 +1,69 @@
+version: '3.7'
+services:
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "6831:6831/udp"
+      - "16686:16686"
+    environment:
+    - SPAN_STORAGE_TYPE=badger
+    - BADGER_EPHEMERAL=false
+    - BADGER_DIRECTORY_VALUE=/badger/data
+    - BADGER_DIRECTORY_KEY=/badger/key
+    volumes:
+      - "./jaeger:/badger"
+    networks:
+      - backend
+  grafana:
+    image: grafana/grafana:exemplars-demo
+    expose:
+      - "3000"
+    ports:
+      - "0.0.0.0:3000:3000"
+    volumes:
+      - "./grafana:/var/lib/grafana"
+    networks:
+      - backend
+  hotrod:
+    image: jaeger-example:exemplars-demo
+    ports: 
+      - "8080:8080"
+      - "8083:8083"
+    command: ["all"]
+    environment:
+      - JAEGER_AGENT_HOST=jaeger
+      - JAEGER_AGENT_PORT=6831
+    networks:
+      - backend
+    depends_on:
+      - jaeger
+  prometheus:
+    image: prom/prometheus-linux-amd64:kubecon_final
+    volumes:
+      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
+    expose:
+      - "9090"
+    ports:
+      - "0.0.0.0:9090:9090"
+    networks:
+      - backend
+  m3dbnode:
+    image: m3dbnode:exemplars-demo
+    expose:
+      - "7201"
+      - "7203"
+      - "9000-9004"
+      - "2379-2380"
+    ports:
+      - "0.0.0.0:7201:7201"
+      - "0.0.0.0:7203:7203"
+      - "0.0.0.0:9000-9004:9000-9004"
+      - "0.0.0.0:2379-2380:2379-2380"
+    volumes:
+      - ./m3db_data:/var/lib/m3db
+      - ./m3db-config.yml:/etc/m3dbnode/m3dbnode.yml
+    networks:
+      - backend
+
+networks:
+  backend:
