@@ -1,11 +1,3 @@
-[submodule "m3"]
-	path = m3
-	url = https://github.com/shreyassrivatsan/m3
-	branch = kubecon_talk
-[submodule "prometheus"]
-	path = prometheus
-	url = https://github.com/shreyassrivatsan/prometheus
-	branch = kubecon_talk
 [submodule "jaeger-example"]
 	path = jaeger-example
 	url = https://github.com/chronosphereio/jaeger-example
