@@ -1,6 +1,4 @@
 global:
-  external_labels:
-    role: "remote"
   scrape_interval:     15s
   evaluation_interval: 15s
 
