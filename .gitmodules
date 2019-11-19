@@ -5,7 +5,7 @@
 [submodule "prometheus"]
 	path = prometheus
 	url = https://github.com/shreyassrivatsan/prometheus
-	branch = kubecon_final
+	branch = kubecon_talk
 [submodule "jaeger-example"]
 	path = jaeger-example
 	url = https://github.com/chronosphereio/jaeger-example
