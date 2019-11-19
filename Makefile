@@ -26,8 +26,11 @@ m3_namespace_setup:
   "retentionTime": "2h" \
 }'
 
+init:
+	git submodule update --init --recursive
+
 app_start: docker_start m3_namespace_setup
 
-start: build_hotrod build_prometheus build_m3 build_grafana app_start
+start: init build_hotrod build_prometheus build_m3 build_grafana app_start
 
 stop: docker_stop
