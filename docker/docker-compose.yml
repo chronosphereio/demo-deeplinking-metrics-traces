@@ -41,7 +41,7 @@ services:
     depends_on:
       - jaeger
   prometheus:
-    image: prom/prometheus-linux-amd64:kubecon_final
+    image: prom/prometheus-linux-amd64:HEAD
     volumes:
       - "./prometheus.yml:/etc/prometheus/prometheus.yml"
     expose:
@@ -51,7 +51,7 @@ services:
     networks:
       - backend
   m3dbnode:
-    image: m3dbnode:exemplars-demo
+    image: m3dbnode:exemplar-demo
     expose:
       - "7201"
       - "7203"
