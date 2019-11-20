@@ -2,8 +2,17 @@
 
 All the forked sources and changes are present under https://github.com/chronosphereiox
 
+## Prerequisites
+
+- NodeJS 10.xx
+- Go 1.13
+
 The demo checks out the required repositories as sub-modules, builds the docker images and launches
-them. Use `make start` to run this the first time. This will take a while to build as it is building
+them. Use
+```bash
+make start
+```
+to run this the first time. This will take a while to build as it is building
 grafana, prometheus, m3 and a couple of other things.
 
 Once the images are built you can use the following to start and stop the demo.
