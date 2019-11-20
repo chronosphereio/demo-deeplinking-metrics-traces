@@ -7,14 +7,14 @@ build_prometheus:
 	mv ./prometheus ./.build/linux-amd64/prometheus && mv ./promtool ./.build/linux-amd64/promtool && make docker
 
 build_m3: 
-	cd m3 && make m3dbnode-docker-dev && docker tag m3dbnode:dev m3dbnode:exemplar-demo
+	cd m3 && docker build -t m3dbnode:exemplar-demo -f ./docker/m3dbnode/Dockerfile .
 
 build_grafana:
 	cd grafana && make build-docker-full && \
 	docker tag grafana/grafana:dev grafana/grafana:exemplars-demo
 
 docker_start:
-	cd docker && docker-compose up -d
+	cd docker && docker-compose up -d --renew-anon-volumes
 
 docker_stop:
 	cd docker && docker-compose down
