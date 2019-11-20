@@ -51,7 +51,7 @@ services:
     networks:
       - backend
   m3dbnode:
-    image: m3dbnode:exemplar-demo
+    image: m3dbnode:exemplars-demo
     expose:
       - "7201"
       - "7203"

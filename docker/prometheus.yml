@@ -9,7 +9,7 @@ remote_read:
     read_recent: true
 
 remote_write:
-  - url: "http://m3dbnode:7201/api/experimental/prom/remote/annotated/write"
+  - url: "http://m3dbnode:7201/api/v1/prom/remote/write"
 
 scrape_configs:
   - job_name: 'hotrod'

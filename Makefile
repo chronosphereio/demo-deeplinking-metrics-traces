@@ -7,7 +7,7 @@ build_prometheus:
 	mv ./prometheus ./.build/linux-amd64/prometheus && mv ./promtool ./.build/linux-amd64/promtool && make docker
 
 build_m3: 
-	cd m3 && docker build -t m3dbnode:exemplar-demo -f ./docker/m3dbnode/Dockerfile .
+	cd m3 && make m3dbnode-docker-dev && docker tag m3dbnode:dev m3dbnode:exemplars-demo
 
 build_grafana:
 	cd grafana && make build-docker-full && \
