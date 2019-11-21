@@ -13,6 +13,8 @@ build_grafana:
 	cd grafana && make build-docker-full && \
 	docker tag grafana/grafana:dev grafana/grafana:exemplars-demo
 
+build_all: build_hotrod build_prometheus build_m3 build_grafana
+
 docker_start:
 	cd docker && docker-compose up -d --renew-anon-volumes
 
@@ -20,17 +22,23 @@ docker_stop:
 	cd docker && docker-compose down
 
 m3_namespace_setup:
-	while true; do curl -X POST http://localhost:7201/api/v1/database/create -d '{ \
+	while true; do (curl -X POST http://localhost:7201/api/v1/database/create -d '{ \
   "type": "local", \
   "namespaceName": "default", \
   "retentionTime": "2h" \
-}' && break; sleep 5; echo Retrying namespace setup; done
+}' && break) || echo Failed will retry; sleep 2; echo Retrying namespace setup; done
 
 init:
 	git submodule update --init --recursive
 
 app_start: docker_start m3_namespace_setup
 
-start: init build_hotrod build_prometheus build_m3 build_grafana app_start
+app_stop: docker_stop
+
+start: init build_all app_start
 
 stop: docker_stop
+
+clean:
+	docker container prune -f
+	docker volume prune -f

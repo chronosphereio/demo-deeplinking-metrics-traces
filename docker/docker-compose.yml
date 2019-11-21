@@ -63,7 +63,6 @@ services:
       - "0.0.0.0:9000-9004:9000-9004"
       - "0.0.0.0:2379-2380:2379-2380"
     volumes:
-      - ./m3db_data:/var/lib/m3db
       - ./m3db-config.yml:/etc/m3dbnode/m3dbnode.yml
     networks:
       - backend
