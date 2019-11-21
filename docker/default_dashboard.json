@@ -50,7 +50,7 @@
             {
               "targetBlank": true,
               "title": "Show Trace",
-              "url": "http://localhost:16686/trace/${__value.exemplar}"
+              "url": "http://localhost:16686/trace/${__value.exemplar.trace_id}?uiFind=${__value.exemplar.span_id}"
             }
           ]
         },
@@ -142,7 +142,7 @@
             {
               "targetBlank": true,
               "title": "Show Trace",
-              "url": "http://localhost:16686/trace/${__value.exemplar}"
+              "url": "http://localhost:16686/trace/${__value.exemplar.trace_id}?uiFind=${__value.exemplar.span_id}"
             }
           ]
         },
@@ -234,7 +234,7 @@
             {
               "targetBlank": true,
               "title": "Show Trace",
-              "url": "http://localhost:16686/trace/${__value.exemplar}"
+              "url": "http://localhost:16686/trace/${__value.exemplar.trace_id}?uiFind=${__value.exemplar.span_id}"
             }
           ]
         },
@@ -326,7 +326,7 @@
             {
               "targetBlank": true,
               "title": "Show Trace",
-              "url": "http://localhost:16686/trace/${__value.exemplar}"
+              "url": "http://localhost:16686/trace/${__value.exemplar.trace_id}?uiFind=${__value.exemplar.span_id}"
             }
           ]
         },
@@ -418,7 +418,7 @@
             {
               "targetBlank": true,
               "title": "Show Trace",
-              "url": "http://localhost:16686/trace/${__value.exemplar}"
+              "url": "http://localhost:16686/trace/${__value.exemplar.trace_id}?uiFind=${__value.exemplar.span_id}"
             }
           ]
         },
