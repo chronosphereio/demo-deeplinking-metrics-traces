@@ -8,7 +8,7 @@ All the forked sources and changes are present under https://github.com/chronosp
 - Go 1.13
 
 The demo checks out the required repositories as sub-modules, builds the docker images and launches
-them. Use
+them. Use:
 ```bash
 make start
 ```
@@ -18,9 +18,9 @@ grafana, prometheus, m3 and a couple of other things.
 Once the images are built you can use the following to start and stop the demo.
 
 ```bash
-make docker_start # starts the demo
+make app_start # starts the demo
 
-make docker_stop # stops the demo
+make app_stop # stops the demo
 ```
 
 Once the demo is up traverse to http://localhost:8080/ to enable traffic through the demo jaeger app

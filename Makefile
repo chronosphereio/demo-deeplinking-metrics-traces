@@ -22,11 +22,11 @@ docker_stop:
 	cd docker && docker-compose down
 
 m3_namespace_setup:
-	while true; do (curl -X POST http://localhost:7201/api/v1/database/create -d '{ \
+	while true; do curl --fail -X POST http://localhost:7201/api/v1/database/create -d '{ \
   "type": "local", \
   "namespaceName": "default", \
   "retentionTime": "2h" \
-}' && break) || echo Failed will retry; sleep 2; echo Retrying namespace setup; done
+}'; if [ "$$?" = "0" ]; then break; fi; echo Failed will retry; sleep 2; echo Retrying namespace setup; done
 
 init:
 	git submodule update --init --recursive
