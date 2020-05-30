@@ -1,5 +1,8 @@
 # Deep Linking Metrics and Traces
 
+This is a working demo that covers this "Deep Linking Metrics and Traces" from KubeCon 2019 San Diego's Observability track. [(talk)](https://kccncna19.sched.com/event/UaXX/deep-linking-metrics-and-traces-with-opentelemetry-openmetrics-and-m3-rob-skillington-chronosphere) [(slides)](https://static.sched.com/hosted_files/kccncna19/2e/Deep%20Linking%20Metrics%20and%20Traces%20with%20OpenTelemetry%2C%20OpenMetrics%2C%20Prometheus%20and%20M3%20%281%29.pdf) [(video)](https://www.youtube.com/watch?v=TzNZIEvhAdA)
+
+
 All the forked sources and changes are present under https://github.com/chronosphereiox
 
 ## Prerequisites
